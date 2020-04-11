@@ -14,8 +14,8 @@ class AddForeignKeyUserAddressesTable extends Migration
     public function up()
     {
         Schema::table('user_addresses', function (Blueprint $table) {
-            $table->foreignId('area_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('area_id')->constrained()->onDelete('cascade')->change();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->change();
         });
     }
 

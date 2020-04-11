@@ -16,8 +16,8 @@ class ModifyOrdersTable extends Migration
         Schema::table('orders', function (Blueprint $table) {
             $table->boolean('is_insured');
             $table->string('status');
-            $table->string('action');
-            $table->string('delivering address');
+            $table->string('action')->nullable();
+            $table->string('delivering address')->nullable();
         });
     }
 

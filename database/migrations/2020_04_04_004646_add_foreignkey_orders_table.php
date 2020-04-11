@@ -14,9 +14,10 @@ class AddForeignkeyOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->foreignId('pharmacy_id')->constrained();
-            $table->foreignId('doctor_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('pharmacy_id')->constrained()->onDelete('cascade');
+            $table->foreignId('doctor_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('status_id')->default(1);
         });
     }
 
